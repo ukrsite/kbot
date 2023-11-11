@@ -40,9 +40,13 @@
 To interact with the bot, open your Telegram app and search for @ukrsite_bot. Start a chat and try the following commands:
 
 /hello: Greet the bot
+
 /version: Get the bot's version
+
 /bye: Say goodbye
+
 Any other command: Receive an "Invalid command" response
+
 Feel free to modify and extend the bot's functionality according to your needs.
 
 ## License
