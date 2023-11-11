@@ -52,6 +52,12 @@ to quickly create a Cobra application.`,
 			switch payload {
 			case "hello":
 				err = m.Send(fmt.Sprintf("Hello I'm Kbot %s!", appVersion))
+			case "version":
+				err = m.Send(fmt.Sprintf("Kbot version is %s!", appVersion))
+			case "bye":
+				err = m.Send(fmt.Sprintf("Bye Kbot %s!", appVersion))
+			default:
+				err = m.Send(fmt.Sprintf("Invalid command"))
 			}
 			return err
 		})
