@@ -9,43 +9,47 @@ TARGETARCH := amd64
 all: linux arm macos windows
 
 linux:
+	@echo "Building for Linux..."
 	TARGETOS=linux TARGETARCH=amd64 make build
 
 arm:
+	@echo "Building for ARM..."
 	TARGETOS=linux TARGETARCH=arm make build
 
 macos:
+	@echo "Building for macOS..."
 	TARGETOS=darwin TARGETARCH=amd64 make build
 
 windows:
+	@echo "Building for Windows..."
 	TARGETOS=windows TARGETARCH=amd64 make build
 
 format:
-	@echo "Run format here..."
+	@echo "Running format..."
 	gofmt -s -w ./
 
 lint:
-	@echo "Run lint here..."
+	@echo "Running lint..."
 	golint
 
 test:
-	@echo "Run tests here..."
+	@echo "Running tests..."
 	go test -v
 
 get:
-	@echo "Run get here..."
+	@echo "Running go get..."
 	go get
 
 build: format get
-	@echo "Let's format it"
+	@echo "Building..."
 	CGO_ENABLED=0 GOOS=${TARGETOS} GOARCH=${TARGETARCH} go build -v -o kbot -ldflags "-X=github.com/ukrsite/kbot/cmd.appVersion=${VERSION}"
 
 image: build
-	@echo "Let's build it"
+	@echo "Building Docker image..."
 	docker build . -t ${REGISTRY}/${APP}:${VERSION}-${TARGETARCH} --build-arg TARGETARCH=${TARGETARCH}
 
 push: image
-	@echo "Pushing ..."
+	@echo "Pushing Docker image..."
 	docker push ${REGISTRY}/${APP}:${VERSION}-${TARGETARCH}
 
 clean:
