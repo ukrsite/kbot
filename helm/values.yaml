@@ -6,7 +6,7 @@ autoscaling:
 replicaCount: 1
 image:
   repository: "ukrsite"
-  tag: "v1.0.1-622b05b"
+  tag: "v1.0.2-73d323e"
   arch: amd64
 secret:
   name: "kbot"
