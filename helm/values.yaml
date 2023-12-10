@@ -5,7 +5,7 @@ autoscaling:
   enabled: false
 replicaCount: 1
 image:
-  repository: "ukrsite"
+  repository: "ghcr.io/ukrsite"
   tag: "v1.0.2-73d323e"
   arch: amd64
 secret:
