@@ -3,7 +3,7 @@ stages:
   - build
 
 variables:
-  REPO: 'git@gitlab.com:ukrsite/kbot.git'
+  REPO: 'https://gitlab-ci-token:$CI_JOB_TOKEN@gitlab.com/ukrsite/kbot.git'
   BRANCH: 'main'
   OS: 'linux' # Set the default OS
   ARCH: 'amd64' # Set the default architecture
