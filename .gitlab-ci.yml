@@ -1,0 +1,21 @@
+stages:
+  - clone
+  - build
+
+variables:
+  REPO: 'https://github.com/ukrsite/kbot'
+  BRANCH: 'main'
+  OS: 'linux' # Set the default OS
+  ARCH: 'amd64' # Set the default architecture
+
+clone:
+  stage: clone
+  script:
+    - echo 'Cloning the repository'
+    - git clone --branch $BRANCH $REPO
+
+build:
+  stage: build
+  script:
+    - echo "Build for platform $OS $ARCH"
+    - make build TARGETOS=$OS TARGETARCH=$ARCH
