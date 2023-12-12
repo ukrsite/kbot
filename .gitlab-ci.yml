@@ -3,7 +3,7 @@ stages:
   - build
 
 variables:
-  REPO: 'https://github.com/ukrsite/kbot'
+  REPO: 'git@gitlab.com:ukrsite/kbot.git'
   BRANCH: 'main'
   OS: 'linux' # Set the default OS
   ARCH: 'amd64' # Set the default architecture
