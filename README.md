@@ -49,6 +49,20 @@ Any other command: Receive an "Invalid command" response
 
 Feel free to modify and extend the bot's functionality according to your needs.
 
+## GitHub Actions Workflow
+
+![CI/CD Workflow](docs/cicd_workflow.svg)
+
+```mermaid
+graph TB
+  A[Push to develop branch] --> B[Run CI Job]
+  B --> C{CI Success?}
+  C -- Yes --> D[Login to GitHub Container Registry]
+  D --> E[Build & Push Docker Image]
+  E --> F[Run CD Job]
+  C -- No --> G[Notify Failure]
+  G --> H[Send Notification]
+
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
