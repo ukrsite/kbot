@@ -3,28 +3,15 @@ stages:
   - build
 
 variables:
-  REPO: 'https://github.com/ukrsite/kbot'
+  REPO: 'https://gitlab-ci-token:$CI_JOB_TOKEN@gitlab.com/ukrsite/kbot.git'
   BRANCH: 'main'
+  OS: 'linux' # Set the default OS
+  ARCH: 'amd64' # Set the default architecture
 
-parameters:
-  - name: 'OS'
-    type: 'choice'
-    choices:
-      - 'linux'
-      - 'darwin'
-      - 'windows'
-      - 'all'
-    default: 'linux'
-    description: 'Pick OS'
-
-  - name: 'ARCH'
-    type: 'choice'
-    choices:
-      - 'amd64'
-      - 'arm'
-      - 'arm64'
-    default: 'amd64'
-    description: 'Pick Architecture'
+before_script:
+  - apt-get update -qy
+  - apt-get install -y golang
+  - export PATH=$PATH:/usr/local/go/bin # Adjust the path based on your Go installation location
 
 clone:
   stage: clone
@@ -35,5 +22,6 @@ clone:
 build:
   stage: build
   script:
-    - echo "Build for platform $OS $ARCH"
-    - make build TARGETOS=$OS TARGETARCH=$ARCH
+    - |
+      echo "Build for platform $OS $ARCH"
+      make build TARGETOS=$OS TARGETARCH=$ARCH
