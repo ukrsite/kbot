@@ -49,7 +49,7 @@ Any other command: Receive an "Invalid command" response
 
 Feel free to modify and extend the bot's functionality according to your needs.
 
-## GitHub Actions Workflow
+# GitHub Actions Workflow
 
 ## License
 
