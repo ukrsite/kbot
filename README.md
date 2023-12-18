@@ -13,7 +13,7 @@
 - Say goodbye with a "bye" command
 - Handle invalid commands gracefully
 
-## Installation
+# Installation
 
 ### Prerequisites
 
