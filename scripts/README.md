@@ -41,7 +41,7 @@ Gitleaks can be implemented as a pre-commit hook directly in your repo or as a G
 
 ```bash
 # Install pre-commit
-curl https://github.com/ukrsite/kbot/scripts/intstall.sh | bash 
+curl https://github.com/ukrsite/kbot/scripts/intstall-pre-commit.sh | bash 
 ```
 
 OR
