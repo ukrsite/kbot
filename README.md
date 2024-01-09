@@ -51,7 +51,6 @@ Feel free to modify and extend the bot's functionality according to your needs.
 
 ## GitHub Actions Workflow
 
-
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
