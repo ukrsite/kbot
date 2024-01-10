@@ -51,7 +51,7 @@ jobs:
     - run: echo "VERSION=$(git describe --tags --abbrev=0)-$(git rev-parse --short HEAD)" >> $GITHUB_ENV
 
     - name: Update Image Tag
-    - uses: mikefarah/yq@master
+      uses: mikefarah/yq@master
       with:
         cmd: yq eval -i '.image.tag=env(VERSION)' helm/values.yaml
         
